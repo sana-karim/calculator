@@ -1,0 +1,352 @@
+<!doctype html>
+<html>
+<head>
+    <title>Calculator</title>
+    <link rel="icon" type="image/png" href="images/calicon.png">
+    <style>                                                     /*Internal CSS*/
+    body {
+        background-color: black;
+    }                                                                                
+    * {
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: 'Courier New', Courier, monospace;
+    }
+    
+    
+    #mainbody {
+        border:2px outset darkgrey;
+        width:720px;
+        height:460px;
+        position: absolute;
+        left:50%;
+        top:50%;
+        margin-top:-230px;
+        margin-left:-360px;
+        background-color: rgba(221, 221, 221, 0.212);
+    }
+    #screen {
+        border:1px solid gray;
+        width: 690px;
+        height: 90px;
+        position: absolute;
+        top:15px;
+        left:15px;
+        background-color:rgba(181, 240, 181, 0.315);
+        transition-property: background-color;
+        transition-duration: 300ms;
+        transition-timing-function: linear;
+    }
+    #buttons {
+        border:1px solid grey;
+        width:690px;
+        height: 325px;
+        position: absolute;
+        top:120px;
+        left:15px;
+        background-color:rgba(128, 128, 128, 0.267);
+    }
+    #scientificbuttons {
+        border:1px solid grey;
+        width:276.42px;
+        height: 295px;
+        position: absolute;
+        top: 15px;
+        left:15px;
+        background-color: rgb(92, 92, 92);
+    }
+    #basicbuttons {
+        border:1px solid grey;
+        width: 368.56px;
+        height: 295px;
+        position: absolute;
+        top: 15px;
+        left: 305.42px;
+        background-color: rgb(92, 92, 92);;
+    }
+
+    .sb1, .sb2, .sb3, .sb4, .sb5, .sb6, .sb7, .sb8, .sb9, .sb10, .sb11, .sb12, .sb13, .sb14, .sb15 {
+        border:1px solid black;
+        width:78.80px;
+        height: 47px;
+        border-radius:10px;
+        padding:12.75px;
+        box-sizing:border-box;
+        position: absolute;
+    }
+    .sb1 {
+        top:10px;
+        left:10px;
+
+    }
+    .sb2 {
+        top:10px;
+        left:98.80px;
+    }
+    .sb3 {
+        top:10px;
+        left: 187.60px;
+    }
+    .sb4 {
+        top:67px;
+        left: 10px;
+    }
+    .sb5 {
+        top: 67px;
+        left: 98.80px;
+    }
+    .sb6 {
+        top: 67px;
+        left: 187.60px;
+    }
+    .sb7 {
+        top: 124px;
+        left: 10px;
+    }
+    .sb8 {
+        top: 124px;
+        left: 98.80px;    
+    }
+    .sb9 {
+        top: 124px;
+        left: 187.60px;
+    }
+    .sb10 {
+        top: 181px;
+        left: 10px;
+    }
+    .sb11 {
+        top: 181px;
+        left: 98.80px;    
+    }
+    .sb12 {
+        top: 181px;
+        left: 187.60px;
+    }
+    .sb13 {
+        top: 238px;
+        left: 10px;
+    }
+    .sb14 {
+        top:238px;
+        left: 98.80px;
+        }
+    .sb15 {
+        top:238px;
+        left: 187.60px;
+    }
+
+    .bb1, .bb2, .bb3, .bb4, .bb5, .bb6, .bb7, .bb8, .bb9, .bb10, .bb11, .bb12, .bb13, .bb14, .bb15, .bb16, .bb17, .bb18, .bb19, .bb20 {
+        border:1px solid black;
+        width:79.64px;
+        height:47px;
+        border-radius:10px;
+        padding:12.75px;
+        box-sizing: border-box;
+        position: absolute;
+    }
+    .bb1 {
+        top:10px;
+        left: 10px;
+    }
+    .bb2 {
+        top:10px;
+        left: 99.64px;
+    }
+    .bb3 {
+        top:10px;
+        left: 189.28px;
+    }
+    .bb4 {
+        top:10px;
+        left :278.924px;
+    }
+    
+    .bb5 {
+        top:67px;
+        left: 10px;
+    }
+    .bb6 {
+        top:67px;
+        left: 99.64px;
+    }
+    .bb7 {
+        top:67px;
+        left: 189.28px;
+    }
+    .bb8 {
+        top:67px;
+        left :278.924px;
+    }
+    
+    .bb9 {
+        top:124px;
+        left: 10px;
+    }
+    .bb10 {
+        top:124px;
+        left: 99.64px;
+    }
+    .bb11 {
+        top:124px;
+        left: 189.28px;
+    }
+    .bb12 {
+        top:124px;
+        left :278.924px;
+    }
+    
+    .bb13 {
+        top:181px;
+        left: 10px;
+    }
+    .bb14 {
+        top:181px;
+        left: 99.64px;
+    }
+    .bb15 {
+        top:181px;
+        left: 189.28px;
+    }
+    .bb16 {
+        top:181px;
+        left :278.924px;
+    }
+    
+    .bb17 {
+        top:238px;
+        left: 10px;
+    }
+    .bb18 {
+        top:238px;
+        left: 99.64px;
+    }
+    .bb19 {
+        top:238px;
+        left: 189.28px;
+    }
+    .bb20 {
+        top:238px;
+        left: 278.924px;
+    }
+
+    #basicbuttons div , #scientificbuttons div{
+        background-color: rgb(165, 164, 164);
+    }
+    #numeric-buttons div {
+        background-color: rgb(214, 214, 214);
+    }
+    #equalto-button div {
+        background-color: rgb(63, 140, 212);
+       
+    }
+    #dummy-calculator {
+        display: none;
+        font-family: luciada-sans;
+        font-size: 50px;
+        color: rgba(0, 0, 0, 0.418);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -33px;                          /*issue in center text (margin top left -50%px) <<fixed>>*/
+        margin-left: -200px;        
+    }
+
+    /* Hover CSS Start*/
+
+    #scientificbuttons div:hover {
+        background-color: lightblue;
+    }
+    #basicbuttons .bb1:hover, #basicbuttons .bb2:hover, #basicbuttons .bb3:hover, #basicbuttons .bb4:hover, #basicbuttons .bb8:hover, #basicbuttons .bb12:hover, #basicbuttons .bb16:hover, #basicbuttons .bb20:hover {
+        background-color: lightblue;
+        font-size: 25px;
+        padding: 10px;
+    }
+    #equalto-button div:hover, #basicbuttons .bb18:hover, #basicbuttons .bb17:hover, #basicbuttons .bb13:hover, #basicbuttons .bb14:hover, #basicbuttons .bb15:hover, #basicbuttons .bb9:hover, #basicbuttons .bb10:hover, #basicbuttons .bb11:hover, #basicbuttons .bb5:hover, #basicbuttons .bb6:hover, #basicbuttons .bb7:hover  {
+        background-color: lightblue;
+        font-size: 25px;
+        padding: 10px;
+    }
+    #scientificbuttons div:hover {
+        background-color: lightblue;
+        font-size: 25px;
+        padding: 10px;
+    }
+
+/*      #basicbuttons div:hover {            uncomment this css (issue: yahan par css basic button ke div pr or uske sare child div par css apply ho rha h koi solution ke basic button ko chor kar unke sare child par css lage?)   
+        background-color: lightblue;
+        font-size:25px;
+        padding-top: 10px;
+        
+ } */ 
+    #mainbody:hover #dummy-calculator {
+        display: block;
+    }
+    
+    div #screen:hover{
+        background-color:rgba(255, 0, 0, 0.24);
+    }
+    /*Hover CSS End*/
+
+    
+    
+    </style>
+</head>
+<body>
+    <div id="mainbody">                                          <!-- calculator main bordder -->
+                                                                  
+        <div id="screen">                                        <!-- Calculator screen -->
+            <div id="dummy-calculator"> Dummy Calculator</div>
+        </div>                                  
+                                
+        <div id="buttons">                                       <!-- Calculator buttons -->   
+            <div id="scientificbuttons">                         <!-- Scientific Buttons -->
+                <div class="sb1">Rad</div>
+                <div class="sb2">Deg</div>
+                <div class="sb3">x!</div>
+                <div class="sb4">Inv</div>
+                <div class="sb5">sin</div>
+                <div class="sb6">In</div>
+                <div class="sb7">TT</div>
+                <div class="sb8">cos</div>
+                <div class="sb9">log</div>
+                <div class="sb10">e</div>
+                <div class="sb11">tan</div>
+                <div class="sb12">√</div>
+                <div class="sb13">Ans</div>
+                <div class="sb14">EXP</div>
+                <div class="sb15">x<sup>y</sup></div>
+            </div>
+            <div id="basicbuttons">                               <!-- Basic Buttons -->
+                <div class="bb1">(</div>
+                <div class="bb2">)</div>
+                <div class="bb3">%</div>
+                <div class="bb4">CE</div>
+                <div class="bb8">/</div>
+                <div class="bb12">X</div>
+                <div class="bb16">-</div>
+                <div class="bb20">+</div>
+
+                <div id="numeric-buttons">                        <!-- Numeric Buttons -->
+                    <div class="bb18">.</div>
+                    <div class="bb17">0</div>
+                    <div class="bb13">1</div>
+                    <div class="bb14">2</div>
+                    <div class="bb15">3</div>
+                    <div class="bb9">4</div>
+                    <div class="bb10">5</div>
+                    <div class="bb11">6</div>
+                    <div class="bb5">7</div>
+                    <div class="bb6">8</div>
+                    <div class="bb7">9</div>
+                </div>
+                <div id="equalto-button">                          <!-- Equalto Button -->
+                    <div class="bb19">=</div>
+                </div>
+            </div>
+
+        </div>          
+    </div>
+</body>
+</html> 
