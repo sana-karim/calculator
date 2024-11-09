@@ -1,0 +1,61 @@
+@media only screen and (max-width: 480px){
+    /* for mobiles */
+    .button-dark{
+        width: 60px!important;
+        height: 60px!important;
+        line-height: 56px!important;
+    }
+    .button-light{
+        width: 60px!important;
+        height: 60px!important;
+        line-height: 56px!important;
+        color: #282c35!important;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .button-dark{
+        width: 60px!important;
+        height: 60px!important;
+        line-height: 60px!important;
+        font-size: 28px!important;
+    }
+    .button-light{
+        width: 60px!important;
+        height: 60px!important;
+        line-height: 60px!important;
+        font-size: 28px!important;
+    }
+}
+
+.button-dark {
+    width: 40px;
+    height: 40px;
+    color: white;
+    font-size: 20px;
+    line-height: 36px;
+    background-color: #31353f;
+    border-radius: 10px;
+    transition: 1s;
+}
+.button-light {
+    width: 40px;
+    height: 40px;
+    color: #282c35;
+    font-size: 20px;
+    line-height: 36px;
+    background-color: #eeeeee;
+    border-radius: 10px;
+    transition: 1s;
+}
+
+.button-dark:hover {
+    transition: 200ms;
+    transform: scale(1.1);
+    background-color: #1f2127;
+}
+.button-light:hover {
+    transition: 200ms;
+    transform: scale(1.1);
+    background-color: #c2c3c5;
+}
